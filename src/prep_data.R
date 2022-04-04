@@ -40,13 +40,4 @@ pl_nonwest <-
 
 ggsave(plot = pl_nl + pl_west + pl_nonwest, "img/migr_plot.png", width = 15, height = 9)
 
-grid_tbl <- 
-  as_tibble(migr_sf) |> 
-  mutate(row = 1:n()) |> 
-  select(row, nl, west, nonwest) |> 
-  mutate(iter = list(1:30), Ba = list(seq(0.1, 0.9, .1))) |> 
-  unnest_longer(Ba) |> 
-  unnest_longer(iter)
-
 write_rds(migr_sf, "data_processed/migr_sf.rds")
-write_rds(grid_tbl, "data_processed/grid_tbl.rds")

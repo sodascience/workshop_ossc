@@ -29,8 +29,6 @@ plot_state(result$M)
 # ok, that took some time! 
 # we may need to speed this up. 
 # I've programmed the same function in c++
-# if you don't have Rcpp installed, install it with
-# install.packages("Rcpp")
 source("src/schelling_cpp.R")
 
 # cpp version is ~8 times faster

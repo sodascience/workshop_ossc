@@ -1,49 +1,79 @@
-# script that runs job in parallel
+# Introduction to running a slow function in parallel in R
+# last edited 2022-04-04 by @vankesteren
+# ODISSEI Social Data Science team
 library(tidyverse)
+library(pbapply)
 library(parallel)
+source("./src/schelling_cpp.R")
 
-n_cores <- 10
-chunk_size <- 30*9*6 # thirty iters per condition, 9 pref values, 6 areas
-grid_tbl <- readRDS("data_processed/grid_tbl.rds")[1:chunk_size,]
+# Create an analysis function ----
+# let's create a function that returns a number of interest
+analysis_function <- function(x) {
+  
+  # we run the abm with certain parameters
+  output <- abm_cpp(
+    prop = c(.69, .19, .12),
+    Ba = 0.6
+  )
+  
+  # we find out how happy the smallest group is
+  return(output$h_prop[3])
+  
+}
 
-# let's only do the fi
-# start the cluster
-clus <- makeCluster(n_cores)
-out <- clusterExport(clus, "grid_tbl")
+# Run the function 300 times using the "apply" family of functions
+res <- pbsapply(X = 1:300, FUN = analysis_function)
+
+# plot
+res |> 
+  tibble() |> 
+  ggplot() + 
+  geom_histogram(aes(x = res), fill = "#345534", bins = 40) + 
+  theme_minimal() +
+  labs(x = "Happiness", y = "Count", title = "Variation in happiness", 
+       subtitle = "Variation over 300 runs of our ABM")
+
+# what is the mean happiness?
+mean(res)
+
+# that's pretty slow! let's see if we can speed this up.
+# we will use the parallel package
+
+# Run the abm in parallel ----
+# first, figure out how many cores you have
+detectCores()
+
+# I have 12 threads (logical cores) available on my machine so 
+# I use 10 threads to leave some computing power for other tasks.
+n_threads <- 10 
+
+# create the cluster
+clus <- makeCluster(n_threads) 
+
+# then, we load the abm code on each of the threads
 out <- clusterEvalQ(clus, source("./src/schelling_cpp.R"))
 
-res <- parSapplyLB(
+# now, we run the function in parallel
+# we use "load-balancing" (LB) which can deal with
+# the fact that runs can take differing amounts of time
+# with only a little more overhead.
+res_parl <- parSapplyLB(
   cl = clus, 
-  X = 1:nrow(grid_tbl), 
-  FUN = function(i) {
-    pars <- as.list(grid_tbl[i,])
-    output <- abm_cpp(
-      prop = c(pars$nl, pars$west, pars$nonwest),
-      Ba = pars$Ba
-    )
-    output$h_prop[3]
-  }
+  X = 1:300, 
+  FUN = analysis_function
 )
 
+# important step! stop the cluster to free up resources.
 stopCluster(clus)
 
-
-grid_tbl$y <- res
-
-grid_summary <- 
-  grid_tbl |> 
-  group_by(row, Ba) |> 
-  summarize(y = mean(y))
-
-grid_summary |> 
-  left_join(migr_sf |> mutate(row = 1:n()) |> select(row, wijknaam, gemeentenaam)) |> 
-  ggplot(aes(x = Ba, y = y, colour = paste(gemeentenaam, wijknaam))) +
-  geom_point() +
-  geom_line() +
-  scale_colour_viridis_d() +
+# plot
+res_parl |> 
+  tibble() |> 
+  ggplot() + 
+  geom_histogram(aes(x = res), fill = "#345534", bins = 40) + 
   theme_minimal() +
-  labs(x = "Neighbourhood similarity desire", 
-       y = "Happiness of non-western group",
-       colour = "Area",
-       title = "Happiness of non-western groups differs per neighbourhood.")
+  labs(x = "Happiness", y = "Count", title = "Variation in happiness", 
+       subtitle = "Variation over 300 runs of our ABM")
 
+# what is the mean happiness?
+mean(res_parl)
