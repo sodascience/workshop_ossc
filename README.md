@@ -2,8 +2,18 @@
 
 This repository contains the code and presentation of the workshop on parallel computing & cluster computing using R in collaboration with SURF.
 
-![image](img/migr_plot.png)
+![image](img/abm.png)
 
+## Outline
+-	Introduction to agent-based model
+-	It’s slow, what can we do? 
+  - Make faster through more efficient programming (I show this), makes it 8x faster
+  - Leveraging “embarrassingly parallel”: parallel computing in R, makes it ~ncores times faster
+-	But now it’s still too slow. That’s where supercomputer comes in.
+  - Creating a condition grid
+  - Rewriting script as self-contained program with chunking for supercomputer
+  - Leveraging array job command in SLURM
+  - Combining results & plotting
 
 ## Contact
 
