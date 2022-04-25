@@ -10,12 +10,12 @@ wijk_sf <-
 
 migr_sf <- 
   wijk_sf |> 
-  select(wijkcode, wijknaam, gemeentecode, gemeentenaam, west = percentageWesterseMigratieachtergrond, nonwest = percentageNietWesterseMigratieachtergrond) |> 
   mutate(
-    west = west/100,
-    nonwest = nonwest/100,
+    west = percentageWesterseMigratieachtergrond/100,
+    nonwest = percentageNietWesterseMigratieachtergrond/100,
     nl = 1 - west - nonwest
-  )
+  ) |> 
+  select(wijkcode, wijknaam, gemeentecode, gemeentenaam, nl, west, nonwest) 
 
 pl_nl <- 
   ggplot(migr_sf) +
