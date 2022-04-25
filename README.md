@@ -1,6 +1,6 @@
-# OSSC workshop
+# Supercomputing with R for Social Scientists
 
-This repository contains the code and presentation of the workshop on parallel computing & cluster computing using R in collaboration with SURF.
+This repository contains the code and presentation of the workshop on parallel computing & cluster computing using R in collaboration with SURF. More information & sign-up can be found on the website [here](https://www.surf.nl/en/agenda/supercomputing-for-social-scientists-with-r).
 
 ![image](img/abm.png)
 
@@ -8,7 +8,7 @@ This repository contains the code and presentation of the workshop on parallel c
 -	Introduction to agent-based model
 -	It’s slow, what can we do? 
     - Make faster through more efficient programming (I show this), makes it 8x faster
-    - Leveraging “embarrassingly parallel”: parallel computing in R, makes it ~ncores times faster
+    - Leveraging “embarrassingly parallel”: parallel computing in R, makes it ~`ncores` times faster
 -	But now it’s still too slow. That’s where supercomputer comes in.
     - Creating a condition grid
     - Rewriting script as self-contained program with chunking for supercomputer
