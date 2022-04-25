@@ -50,3 +50,19 @@ migr_sf |>
   scale_fill_viridis_c() +
   theme_minimal() +
   labs(title = "Results")
+
+
+# How many jobs will we need on the supercomputer? ----
+# each node has 16 cores
+n_cores  <- 16
+# each core can estimate about 400 models per minute
+mod_rate <- 400
+# we want to run each job for about 30 minutes
+job_time <- 30
+# get final chunk size
+chunk_size <- n_cores*mod_rate*job_time
+
+# number of jobs needed:
+ceiling(nrow(grid_tbl) / chunk_size)
+
+# 77!

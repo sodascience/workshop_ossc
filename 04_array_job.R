@@ -37,12 +37,12 @@ plog("Parameter grid loaded.")
 # Chunking ----
 # first we compute how many models to run on this node
 plog("Computing chunks")
-# each node has 24 cores, run for about 10 minutes
-n_cores  <- 24
-# each core can estimate about 25 models per second
-mod_rate <- 25
-# we want to run each job for about 10 minutes (600 seconds)
-job_time <- 600
+# each node has 16 cores
+n_cores  <- 16
+# each core can estimate about 400 models per minute
+mod_rate <- 400
+# we want to run each job for about 30 minutes
+job_time <- 30
 # get final chunk size
 chunk_size <- n_cores*mod_rate*job_time
 
@@ -95,7 +95,7 @@ plog("Cluster successfully created.")
 plog("Running", chunk_size, "ABM simulations...")
 out <- parSapplyLB(
   cl  = clus, 
-  X   = chunk_start:chunk_end, 
+  X   = 1:chunk_size, 
   FUN = analysis_function
 )
 plog("Simulations done!")
