@@ -14,7 +14,9 @@ This repository contains the code and presentation of the workshop on parallel c
     - Rewriting script as self-contained program with chunking for supercomputer
     - Leveraging array job command in SLURM: 
     - Combining results & plotting
-- End result: an approximately 77 x 16 x 8 = 9856 times speedup!
+- End result: an approximately 77 x 16 x 8 = 9856 times speedup to create this map:
+
+![map](img/segr_map.png)
 
 ## Contact
 
