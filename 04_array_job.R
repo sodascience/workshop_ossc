@@ -95,7 +95,7 @@ plog("Cluster successfully created.")
 plog("Running", chunk_size, "ABM simulations...")
 out <- parSapplyLB(
   cl  = clus, 
-  X   = 1:chunk_size, 
+  X   = 1:(chunk_end-chunk_start+1), 
   FUN = analysis_function
 )
 plog("Simulations done!")
