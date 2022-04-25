@@ -7,13 +7,14 @@ This repository contains the code and presentation of the workshop on parallel c
 ## Outline
 -	Introduction to agent-based model
 -	It’s slow, what can we do? 
-  - Make faster through more efficient programming (I show this), makes it 8x faster
-  - Leveraging “embarrassingly parallel”: parallel computing in R, makes it ~ncores times faster
+    - Make faster through more efficient programming (I show this), makes it 8x faster
+    - Leveraging “embarrassingly parallel”: parallel computing in R, makes it ~ncores times faster
 -	But now it’s still too slow. That’s where supercomputer comes in.
-  - Creating a condition grid
-  - Rewriting script as self-contained program with chunking for supercomputer
-  - Leveraging array job command in SLURM
-  - Combining results & plotting
+    - Creating a condition grid
+    - Rewriting script as self-contained program with chunking for supercomputer
+    - Leveraging array job command in SLURM: 
+    - Combining results & plotting
+- End result: an approximately 77 x 16 x 8 = 9856 times speedup!
 
 ## Contact
 
