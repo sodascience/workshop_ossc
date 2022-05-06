@@ -1,5 +1,5 @@
 library(Rcpp)
-sourceCpp("./src/update_cpp.cpp")
+sourceCpp("./src/update.cpp")
 
 #' Run schelling simulation
 #' 

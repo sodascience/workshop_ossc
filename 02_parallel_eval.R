@@ -22,6 +22,7 @@ analysis_function <- function(x) {
 }
 
 # Run the function 300 times using the "apply" family of functions
+# Apply is a short, functional version of a "for loop".
 res <- pbsapply(X = 1:300, FUN = analysis_function)
 
 # plot

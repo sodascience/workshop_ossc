@@ -60,9 +60,9 @@ grid_tbl <- grid_tbl[chunk_start:chunk_end,]
 # Again, it really depends on what you are doing.
 # I'll output a single number for each row in the grid:
 # The simulated proportion of happy nonwestern migrants
-analysis_function <- function(row) {
+analysis_function <- function(row_idx) {
   # Get the parameters belonging to this row
-  settings <- as.list(grid_tbl[row,])
+  settings <- as.list(grid_tbl[row_idx,])
   
   # compute the proportion of happy nonwestern migrants
   # use trycatch to avoid crashing. This is important otherwise

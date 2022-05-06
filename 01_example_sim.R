@@ -1,6 +1,7 @@
 # Introduction to schelling agent-based model and its parameters
 # last edited 2022-03-22 by @vankesteren
 # ODISSEI Social Data Science team
+library(Rcpp)
 
 # I have pre-programmed a function that runs a schelling model
 source("./src/schelling.R")
@@ -23,8 +24,8 @@ result$h_prop
 str(result)
 
 # what if we have more populations and a smaller percentage?
-result <- abm(c(.6, 0.2, 0.1, 0.1), Ba = .33, iter = 200)
-plot_state(result$M)
+result_2 <- abm(prop = c(.6, 0.2, 0.1, 0.1), Ba = .33, iter = 200)
+plot_state(result_2$M)
 
 # ok, that took some time! 
 # we may need to speed this up. 
@@ -32,12 +33,12 @@ plot_state(result$M)
 source("src/schelling_cpp.R")
 
 # cpp version is ~8 times faster
-result <- abm_cpp(prop = c(.6, 0.2, 0.1, 0.1), Ba = .33, iter = 200)
-plot_state(result$M)
+result_3 <- abm_cpp(prop = c(.6, 0.2, 0.1, 0.1), Ba = .33, iter = 200)
+plot_state(result_3$M)
 
 
 # let's iterate longer
-result <- abm_cpp(c(.6, 0.2, 0.1, 0.1), anim = FALSE, Ba = .33, iter = 3000)
+result <- abm_cpp(prop = c(.6, 0.2, 0.1, 0.1), anim = FALSE, Ba = .33, iter = 3000)
 plot_state(result$M)
 # majority population stays spread out, minorities form cliques
 result$h_prop
