@@ -35,7 +35,10 @@ write_rds(grid_tbl, "data_processed/grid_tbl.rds")
 
 
 # Preview: how to aggregate results from this grid? ----
+# put some random numbers / fake results in the condition grid.
 result_tbl <- grid_tbl |> mutate(result = rnorm(n()))
+
+# use dplyr language to group and summarize the output
 result <- 
   result_tbl |> 
   group_by(row, Ba) |> # grouping
