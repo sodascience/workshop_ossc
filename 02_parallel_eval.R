@@ -41,7 +41,7 @@ mean(res)
 # we will use the parallel package
 
 # Run the abm in parallel ----
-# first, figure out how many cores you have
+# first, figure out how many logical cores (threads) you have
 detectCores()
 
 # I have 12 threads (logical cores) available on my machine so 
