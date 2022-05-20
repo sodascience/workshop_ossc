@@ -26,7 +26,7 @@ str(result)
 # what if we have more populations and a smaller percentage?
 result_2 <- abm(prop = c(.6, 0.2, 0.1, 0.1), Ba = .33, iter = 200)
 plot_state(result_2$M)
-
+ 
 # ok, that took some time! 
 # we may need to speed this up. 
 # I've programmed the same function in c++

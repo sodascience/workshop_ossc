@@ -57,7 +57,7 @@ out <- clusterEvalQ(clus, source("./src/schelling_cpp.R"))
 # now, we run the function in parallel
 # we use "load-balancing" (LB) which can deal with
 # the fact that runs can take differing amounts of time
-# with only a little more overhead.
+# (a little more overhead than non-load-balancing)
 res_parl <- parSapplyLB(
   cl = clus, 
   X = 1:300, 
