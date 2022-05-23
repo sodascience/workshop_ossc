@@ -29,17 +29,8 @@ This repository contains the code and presentation of the workshop on parallel c
 | 16:15 | Lecture: combining & analysing the results      | [`slides`](./slides/results.pdf)    |
 | 16:30 | Conclusion & Q&A                                | `your remaining attention!`         |
 
-## Outline
--	Introduction to agent-based model
--	It’s slow, what can we do? 
-    - Make faster through more efficient programming (I show this), makes it 8x faster
-    - Leveraging “embarrassingly parallel”: parallel computing in R, makes it ~`ncores` times faster
--	But now it’s still too slow. That’s where supercomputer comes in.
-    - Creating a condition grid
-    - Rewriting script as self-contained program with chunking for supercomputer
-    - Leveraging array job command in SLURM: 
-    - Combining results & plotting
-- End result: an approximately 77 x 16 x 8 = 9856 times speedup to create this map:
+## End result: a map of the Netherlands
+The below map would take around 6 months to produce using the naïve implementation on a normal computer. You will learn how to compute it in a few hours on a supercomputer.
 
 ![map](img/segr_map.png)
 
