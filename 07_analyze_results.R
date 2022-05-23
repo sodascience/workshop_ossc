@@ -27,7 +27,7 @@ pref_plot <-
 
 ggsave(plot = pref_plot, filename = "img/pref_plot.png", height = 6, width = 12, bg = "white")
   
-# apply the function per area
+# compute the mean per area
 res_area <- 
   result_tbl |> 
   group_by(row) |> 
