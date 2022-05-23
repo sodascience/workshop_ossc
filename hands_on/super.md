@@ -23,9 +23,10 @@ In this section, you will create a grid, define a job script, and submit an arra
 
 ## Running the array job - `15 minutes`
 1. Open the file [`05_array_job.sh`](../05_array_job.sh). What does this file do? How much time is scheduled for this job?
-2. Upload the whole folder to the supercomputer using the skills you acquired this morning.
-3. Move to the just uploaded project folder using `cd`
-4. Run the first three jobs on the supercomputer using the SLURM array notation:
+2. (OPTIONAL) Change the job so that it run on the scratch folder.
+3. Upload the whole folder to the supercomputer using the skills you acquired this morning.
+4. Move to the just uploaded project folder using `cd`
+5. Run the first three jobs on the supercomputer using the SLURM array notation:
     ```
     sbatch -a 1-3 05_array_job.sh
     ```
