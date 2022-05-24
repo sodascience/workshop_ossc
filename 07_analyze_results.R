@@ -3,13 +3,13 @@
 # ODISSEI Social Data Science team
 library(tidyverse)
 library(sf)
-library(mgcv)
 
 # load the results & map data
 result_tbl <- read_rds("data_processed/result_tbl.rds")
 migr_sf <- read_rds("data_processed/migr_sf.rds")
 
-# look at 1 area
+# look at 3 areas just to check the results
+# relation between Ba and res?
 roi_df <- result_tbl |> filter(row %in% c(1700, 14, 268))
 pref_plot <- 
   roi_df |> 
@@ -27,6 +27,7 @@ pref_plot <-
 
 ggsave(plot = pref_plot, filename = "img/pref_plot.png", height = 6, width = 12, bg = "white")
   
+# we will keep it simple
 # compute the mean per area
 res_area <- 
   result_tbl |> 
@@ -42,8 +43,9 @@ segr_map <-
   ggplot(aes(fill = est)) +
   geom_sf(col = "transparent") +
   theme_minimal() +
-  scale_fill_viridis_c(na.value = "#34343434", guide = "none") +
+  scale_fill_viridis_c(na.value = "#34343434") +
   labs(title = "Nonwestern migrant segregation",
-       subtitle = "Agent-based model results")
+       subtitle = "Agent-based model results", 
+       fill = "")
 
 ggsave(plot = segr_map, "img/segr_map.png", height = 9, width = 7, bg = "white")
