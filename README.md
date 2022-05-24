@@ -25,9 +25,9 @@ This repository contains the code and presentation of the workshop on parallel c
 | 14:30 | Break                                           | `your own coffee :)`                |
 | 14:45 | Lecture: supercomputing with R                  | [`slides`](./slides/supercomp.pdf)  |
 | 15:30 | Hands-on: submitting an R array job             | [`assignment`](./hands_on/super.md) |
-| 16:00 | Break                                           | `your own coffee :)`                |
-| 16:15 | Lecture: combining & analysing the results      | [`slides`](./slides/results.pdf)    |
-| 16:30 | Conclusion & Q&A                                | `your remaining attention!`         |
+| 16:15 | Break                                           | `your own coffee :)`                |
+| 16:30 | Lecture: combining & analysing the results      | [`slides`](./slides/results.pdf)    |
+| 16:45 | Conclusion & Q&A                                | `your remaining attention!`         |
 
 ## End result: a map of the Netherlands
 The below map would take around 6 months to produce using the naïve implementation on a normal computer. You will learn how to compute it in a few hours on a supercomputer.
