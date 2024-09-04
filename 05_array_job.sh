@@ -3,7 +3,7 @@
 # usage: sbatch -a 1-100 05_array_job.sh
 
 # Array job shell script which runs R code
-# last edited 2022-04-04 by @vankesteren
+# last edited 2024-09-04 by @vankesteren
 # ODISSEI Social Data Science team
 
 # Set job requirements
@@ -15,8 +15,8 @@
 
 
 # Loading modules
-module load 2021
-module load R/4.1.0-foss-2021a
+module load 2023
+module load R/4.3.2-gfbf-2023a
 
 # Run the script
 Rscript "04_array_job.R" $SLURM_ARRAY_TASK_ID

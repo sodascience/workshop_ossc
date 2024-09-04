@@ -1,5 +1,5 @@
 # Introduction to running a slow function in parallel in R
-# last edited 2022-04-04 by @vankesteren
+# last edited 2024-09-04 by @vankesteren
 # ODISSEI Social Data Science team
 library(tidyverse)
 library(pbapply)
@@ -55,12 +55,14 @@ clus <- makeCluster(n_threads)
 out <- clusterEvalQ(clus, source("./src/schelling_cpp.R"))
 
 # now, we run the function in parallel
-# we use "load-balancing" (LB) which can deal with
+res_parl <- pbsapply(X = 1:300, FUN = analysis_function, cl = clus)
+
+# we can also use "load-balancing" (LB) which can deal with
 # the fact that runs can take differing amounts of time
-# (a little more overhead than non-load-balancing)
+# (at the cost of a little more overhead than non-load-balancing)
 res_parl <- parSapplyLB(
-  cl = clus, 
-  X = 1:300, 
+  cl = clus,
+  X = 1:300,
   FUN = analysis_function
 )
 
