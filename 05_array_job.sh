@@ -9,10 +9,8 @@
 # Set job requirements
 #SBATCH -n 1
 #SBATCH -t 00:45:00
+#SBATCH --ntasks 16
 #SBATCH -o ./logs/output.%a.out # STDOUT
-#SBATCH --mail-type=BEGIN,END
-#SBATCH --mail-user=e.vankesteren1@uu.nl
-
 
 # Loading modules
 module load 2023
