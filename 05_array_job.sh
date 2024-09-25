@@ -8,7 +8,7 @@
 
 # Set job requirements
 #SBATCH -n 1
-#SBATCH -t 00:45:00
+#SBATCH -t 00:15:00
 #SBATCH --ntasks 16
 #SBATCH -o ./logs/output.%a.out # STDOUT
 
