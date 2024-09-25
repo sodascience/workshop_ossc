@@ -14,7 +14,7 @@
 
 # Loading modules
 module load 2023
-module load R/4.3.2-gfbf-2023a
+module load R-bundle-CRAN/2023.12-foss-2023a
 
 # Run the script
 Rscript "04_array_job.R" $SLURM_ARRAY_TASK_ID
