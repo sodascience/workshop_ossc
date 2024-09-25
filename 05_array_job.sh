@@ -10,6 +10,7 @@
 #SBATCH -n 1
 #SBATCH -t 00:15:00
 #SBATCH --ntasks 16
+#SBATCH --partition=rome
 #SBATCH -o ./logs/output.%a.log # STDOUT
 
 # Loading modules
