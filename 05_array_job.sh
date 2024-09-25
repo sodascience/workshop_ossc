@@ -7,11 +7,12 @@
 # ODISSEI Social Data Science team
 
 # Set job requirements
-#SBATCH -n 1
-#SBATCH -t 00:15:00
-#SBATCH --ntasks 16
+#SBATCH --nodes=1
+#SBATCH --ntasks=16
+#SBATCH --time=00:15:00
 #SBATCH --partition=rome
-#SBATCH -o ./logs/output.%a.log # STDOUT
+#SBATCH --output=./logs/output.%a.out
+#SBATCH --error=./logs/output.%a.err
 
 # Loading modules
 module load 2023
