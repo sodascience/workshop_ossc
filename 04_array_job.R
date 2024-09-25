@@ -24,6 +24,7 @@ plog("Starting the abm analysis.")
 
 # Packages ----
 plog("Loading packages & ABM code...")
+.libPaths("/gpfs/home3/scur0984/R/x86_64-pc-linux-gnu-library/4.3")
 library(tidyverse)
 library(parallel)
 source("src/schelling_cpp.R")
