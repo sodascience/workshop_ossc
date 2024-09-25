@@ -42,8 +42,8 @@ plog("Computing chunks")
 n_cores  <- 16
 # each core can estimate about 400 models per minute
 mod_rate <- 400
-# we want to run each job for about 30 minutes
-job_time <- 30
+# we want to run each job for about 5 minutes
+job_time <- 5
 # get final chunk size
 chunk_size <- n_cores*mod_rate*job_time
 
