@@ -8,7 +8,8 @@
 
 # Set job requirements
 #SBATCH --nodes=1
-#SBATCH --ntasks=16
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=16
 #SBATCH --time=00:15:00
 #SBATCH --partition=rome
 #SBATCH --output=./logs/output.%a.out
