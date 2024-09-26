@@ -24,7 +24,8 @@ plog("Starting the abm analysis.")
 
 # Packages ----
 plog("Loading packages & ABM code...")
-.libPaths("~/R/x86_64-pc-linux-gnu-library/4.3")
+# if you need custom packages installed in your personal library on snellius, run:
+# .libPaths("~/R/x86_64-pc-linux-gnu-library/4.3")
 suppressPackageStartupMessages(library(tidyverse))
 library(parallel)
 source("src/schelling_cpp.R")
