@@ -73,7 +73,7 @@ stopCluster(clus)
 res_parl |> 
   tibble() |> 
   ggplot() + 
-  geom_histogram(aes(x = res), fill = "#345534", bins = 40) + 
+  geom_histogram(aes(x = res_parl), fill = "#345534", bins = 40) + 
   theme_minimal() +
   labs(x = "Happiness", y = "Count", title = "Variation in happiness", 
        subtitle = "Variation over 300 runs of our ABM")
