@@ -22,10 +22,10 @@ This repository contains the code and presentation of the workshop on parallel c
 | :---- | :---------------------------------------------- | :---------------------------------- |
 | 11:00 | Lecture: computational limits in social science | [`slides`](./slides/intro.pdf)      |
 | 11:45 | Hands-on: a parallel agent-based model in R     | [`assignment`](./hands_on/intro.md) |
-| 12:30 | Break                                           | `your own coffee :)`                |
+| 12:30 | Break                                           | `lunch`                             |
 | 13:30 | Lecture: supercomputing with R                  | [`slides`](./slides/supercomp.pdf)  |
 | 14:15 | Hands-on: submitting an R array job             | [`assignment`](./hands_on/super.md) |
-| 15:15 | Break                                           | `your own coffee :)`                |
+| 15:15 | Break                                           | `coffee :)`                         |
 | 15:30 | Lecture: combining & analysing the results      | [`slides`](./slides/results.pdf)    |
 | 16:15 | Conclusion & Q&A                                | `your remaining attention!`         |
 
