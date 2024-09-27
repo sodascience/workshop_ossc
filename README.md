@@ -20,7 +20,7 @@ This repository contains the code and presentation of the workshop on parallel c
 
 | Time  | Title                                           | Required resource                   |
 | :---- | :---------------------------------------------- | :---------------------------------- |
-| 09:00 | Introduction to Supercomputing and the OSSC     | [`slides`](https://surfdrive.surf.nl/files/index.php/s/3wETmOZpKoe3hhu) |
+| 09:00 | Introduction to Supercomputing and the OSSC     | [`slides`](./slides/OSSC_SURF.pdf)  |
 | 11:00 | Lecture: computational limits in social science | [`slides`](./slides/intro.pdf)      |
 | 11:45 | Hands-on: a parallel agent-based model in R     | [`assignment`](./hands_on/intro.md) |
 | 12:30 | Break                                           | `lunch`                             |
